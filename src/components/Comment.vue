@@ -17,18 +17,18 @@
           :breakpoints="breakpoints"
           data-aos="fade-up"
         >
-          <swiper-slide v-for="(review, index) in reviews" :key="index">
-            <v-card
-              class="mx-auto"
-              :prepend-avatar="review.avatar"
-              :subtitle="review.subtitle"
-              :title="review.title"
-            >
-              <v-card-text class="review-text">
-                {{ getLimitedText(review.text) }}
-              </v-card-text>
-            </v-card>
-          </swiper-slide>
+  <swiper-slide v-for="(review, index) in reviews" :key="index">
+    <v-card
+      class="mx-auto"
+      :prepend-avatar="require(`@/assets/${review.avatar}`)"
+      :subtitle="review.subtitle"
+      :title="review.title"
+    >
+      <v-card-text class="review-text">
+        {{ getLimitedText(review.text) }}
+      </v-card-text>
+    </v-card>
+  </swiper-slide>
         </swiper>
       </v-col>
     </v-row>
@@ -81,25 +81,25 @@ const breakpoints = {
 const reviews = [
   {
     text: '整體體驗非常滿意！從選擇到下單，再到配送和安裝，每一步都無比順利。平台的界面友善且易於操作，產品分類清晰，讓我能快速找到所需的設備。產品的描述詳細，圖片高清，幫我做出了明智的選擇。客服人員的回應也非常及時且專業，他們提供了有價值的建議，幫我解決了不少疑問。',
-    avatar: '/assets/person01.png',
+    avatar: '/public/image/person01.png',
     subtitle: '2024.08.20',
     title: '大村武居酒屋'
   },
   {
     text: '配送方面，服務也很出色。我的訂單在預定時間內準時送達，而且設備包裝非常仔細，完好無損。安裝團隊的專業程度也讓我印象深刻，工作效率高且態度友好，確保每一項設備都按預期安裝好。[創業趣]的優質服務和高效的物流系統令我非常滿意，未來我一定會繼續在這裡選購餐飲設備。強烈推薦給大家！',
-    avatar: '/assets/person02.png',
+    avatar: '/public/image/person02.png',
     subtitle: '2024.08.18',
     title: '浙川園川味料理'
   },
   {
     text: '整體體驗非常滿意！從選擇到下單，再到配送和安裝，每一步都無比順利。平台的界面友善且易於操作，產品分類清晰，讓我能快速找到所需的設備。產品的描述詳細，圖片高清，幫我做出了明智的選擇。客服人員的回應也非常及時且專業，他們提供了有價值的建議，幫我解決了不少疑問。',
-    avatar: '/assets/person01.png',
+    avatar: '/public/image/person01.png',
     subtitle: '2024.08.20',
     title: '大村武居酒屋'
   },
   {
     text: '配送方面，服務也很出色。我的訂單在預定時間內準時送達，而且設備包裝非常仔細，完好無損。安裝團隊的專業程度也讓我印象深刻，工作效率高且態度友好，確保每一項設備都按預期安裝好。[創業趣]的優質服務和高效的物流系統令我非常滿意，未來我一定會繼續在這裡選購餐飲設備。強烈推薦給大家！',
-    avatar: '/assets/person02.png',
+    avatar: '/public/image/person02.png',
     subtitle: '2024.08.18',
     title: '浙川園川味料理'
   }
