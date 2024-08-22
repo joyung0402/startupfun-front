@@ -17,18 +17,18 @@
           :breakpoints="breakpoints"
           data-aos="fade-up"
         >
-  <swiper-slide v-for="(review, index) in reviews" :key="index">
-    <v-card
-      class="mx-auto"
-      :prepend-avatar="require(`@/assets/${review.avatar}`)"
-      :subtitle="review.subtitle"
-      :title="review.title"
-    >
-      <v-card-text class="review-text">
-        {{ getLimitedText(review.text) }}
-      </v-card-text>
-    </v-card>
-  </swiper-slide>
+          <swiper-slide v-for="(review, index) in reviews" :key="index">
+            <v-card
+              class="mx-auto"
+              :prepend-avatar="review.avatar"
+              :subtitle="review.subtitle"
+              :title="review.title"
+            >
+              <v-card-text class="review-text">
+                {{ getLimitedText(review.text) }}
+              </v-card-text>
+            </v-card>
+          </swiper-slide>
         </swiper>
       </v-col>
     </v-row>
