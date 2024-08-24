@@ -260,15 +260,16 @@ const tableSearch = ref('')
 const tableLoadItems = async (resetPage) => {
   tableLoading.value = true
   try {
-    const params = {
-      sortBy: tableSortBy.value[0]?.key,
-      sortOrder: tableSortBy.value[0]?.order,
-      page: resetPage ? 1 : tablePage.value,
-      itemsPerPage: tableItemsPerPage.value,
-      search: tableSearch.value
-    }
-    const { data } = await apiAuth.get('/product', { params })
-    tableItems.value = data.result.data
+    const { data } = await apiAuth.get('/product/all', {
+      params: {
+        page: tablePage.value,
+        itemsPerPage: tableItemsPerPage.value,
+        sortBy: tableSortBy.value[0]?.key || 'createdAt',
+        sortOrder: tableSortBy.value[0]?.order || 'desc',
+        search: tableSearch.value
+      }
+    })
+    tableItems.value.splice(0, tableItems.value.length, ...data.result.data)
     tableItemsLength.value = data.result.total
   } catch (error) {
     createSnackbar({
