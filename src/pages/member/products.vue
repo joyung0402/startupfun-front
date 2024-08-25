@@ -131,7 +131,7 @@ definePage({
   meta: {
     title: '創業趣 | 管理',
     login: true,
-    admin: true
+    admin: false
   }
 })
 
