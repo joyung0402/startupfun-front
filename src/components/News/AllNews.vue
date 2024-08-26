@@ -1,10 +1,10 @@
 <template>
   <v-col cols="12" sm="12" class="my-16">
     <v-row class="content-row">
-      <!-- Left Column for Content -->
+      <!-- 左側內容區 -->
       <v-col cols="12" sm="9" class="content-column">
         <v-row>
-          <!-- Display paginated cards -->
+          <!-- 顯示分頁卡片 -->
           <v-col
             v-for="(card, index) in paginatedCards"
             :key="index"
@@ -16,12 +16,16 @@
             <v-card color="white">
               <v-row no-gutters>
                 <v-col cols="12" sm="7">
-                  <v-img :src="card.image" class="img-style"></v-img>
+                  <router-link :to="'/singlenews'">
+                    <v-img :src="card.image" class="img-style"></v-img>
+                  </router-link>
                 </v-col>
                 <v-col cols="12" sm="5" class="ntarea">
-                  <v-card-title class="text-h5 text-black">
-                    {{ card.title }}
-                  </v-card-title>
+                  <router-link :to="'/singlenews'">
+                    <v-card-title class="text-h5 text-black">
+                      {{ card.title }}
+                    </v-card-title>
+                  </router-link>
                   <v-card-subtitle class="text-black">
                     {{ card.subtitle }}
                   </v-card-subtitle>
@@ -31,7 +35,7 @@
                       size="small"
                       text="READ MORE"
                       variant="outlined"
-                      to="/singlenews"
+                      :to="'/singlenews'"
                     ></v-btn>
                   </v-card-actions>
                 </v-col>
@@ -40,7 +44,7 @@
           </v-col>
         </v-row>
 
-        <!-- Pagination Controls -->
+        <!-- 分頁控制 -->
         <v-row class="mt-4" justify="center">
           <v-col cols="12" sm="12" class="d-flex justify-center">
             <v-pagination
@@ -52,11 +56,11 @@
         </v-row>
       </v-col>
 
-      <!-- Right Column to maintain layout -->
+      <!-- 右側區域 -->
       <v-col cols="12" sm="3" id="newsct" data-aos="fade-up">
         <v-row>
           <v-col>
-            <!-- Search Bar -->
+            <!-- 搜尋框 -->
             <v-col cols="12">
               <v-text-field
                 class="mx-auto"
@@ -72,7 +76,7 @@
               ></v-text-field>
             </v-col>
 
-            <!-- Latest News -->
+            <!-- 最新消息 -->
             <h1 id="newstitle01">最新消息</h1>
             <v-col cols="12" class="mt-4 newslist1">
               <v-list>
@@ -83,7 +87,9 @@
                     class="mb-2"
                   >
                     <v-list-item-content>
-                      <v-list-item-title>{{ news.title }}</v-list-item-title>
+                      <router-link :to="'/singlenews'">
+                        <v-list-item-title>{{ news.title }}</v-list-item-title>
+                      </router-link>
                       <v-list-item-subtitle>{{ news.subtitle }}</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
@@ -91,7 +97,7 @@
               </v-list>
             </v-col>
 
-            <!-- Featured Articles -->
+            <!-- 精選文章 -->
             <h1 id="featuredtitle01" class="mt-8">精選文章</h1>
             <v-col cols="12" class="mt-4 featuredlist1">
               <v-list>
@@ -100,12 +106,14 @@
                   :key="index"
                   class="mb-4"
                 >
-                  <v-list-item-avatar>
-                    <v-img :src="article.image" class="featured-img"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <v-list-item-title>{{ article.title }}</v-list-item-title>
-                  </v-list-item-content>
+                  <router-link :to="'/singlenews'">
+                    <v-list-item-avatar>
+                      <v-img :src="article.image" class="featured-img"></v-img>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ article.title }}</v-list-item-title>
+                    </v-list-item-content>
+                  </router-link>
                 </v-list-item>
               </v-list>
             </v-col>
@@ -120,15 +128,17 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 // 初始化 AOS
 onMounted(() => {
   AOS.init({
-    duration: 1000, // 动画持续时间
-    easing: 'ease-in-out', // 动画效果
-    once: true // 是否只触发一次
+    duration: 1000, // 動畫持續時間
+    easing: 'ease-in-out', // 動畫效果
+    once: true // 是否只觸發一次
   })
 })
+
 export default {
   data: () => ({
     cards: [
@@ -148,7 +158,7 @@ export default {
     featuredArticles: [
       { title: '【新品體驗日】🍽️ 本月末，我們將舉辦餐飲設備新品體驗日！', image: 'image/w800-05.jpg' },
       { title: '【顧客評價活動】💬 分享你對我們餐飲設備的使用心得', image: 'image/w800-06.jpg' },
-      { title: '【免運費優惠】🚚 本月內所有訂單免運費！', image: 'image/w800-01.jpg' },
+      { title: '【免運費優惠】🚚 本月內所有訂單免運費！', image: 'image/w800-01.jpg' }
     ]
   }),
   computed: {
@@ -175,7 +185,7 @@ export default {
       }))
     },
     staticLatestNews () {
-      // Assuming you want to always show the first 4 items in the `cards` array
+      // 假設要始終顯示 `cards` 陣列中的前四項
       return this.cards.slice(0, 4).map(card => ({
         title: card.title,
         subtitle: card.subtitle
@@ -184,9 +194,9 @@ export default {
   },
   methods: {
     performSearch () {
-      // Add any additional logic needed when the user presses Enter
-      this.search = this.searchInput.trim() // Trim whitespace if needed
-      this.currentPage = 1 // Reset to the first page on new search
+      // 當用戶按下 Enter 鍵時需要的額外邏輯
+      this.search = this.searchInput.trim() // 去除前後空白
+      this.currentPage = 1 // 在新搜尋時重置到第一頁
     },
     handleEnterKey (event) {
       this.performSearch()
