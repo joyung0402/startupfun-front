@@ -254,27 +254,51 @@ const backgroundStyle = computed(() => ({
   backgroundPosition: 'center'
 }))
 
+// const categories = reactive({
+//   plates: [
+//     '/public/image/w800-31.jpg',
+//     '/public/image/w800-32.jpg',
+//     '/public/image/w800-33.jpg',
+//     '/public/image/w800-34.jpg',
+//     '/public/image/w800-36.jpg',
+//     '/public/image/w800-37.jpg'
+//   ],
+//   utensils: [
+//     '/public/image/w800-38.jpg',
+//     '/public/image/w800-39.jpg',
+//     '/public/image/w800-40.jpg',
+//     '/public/image/w800-41.jpg',
+//     '/public/image/w800-42.jpg'
+//   ],
+//   storage: [
+//     '/public/image/w800-43.jpg',
+//     '/public/image/w800-44.jpg',
+//     '/public/image/w800-45.jpg',
+//     '/public/image/w800-46.jpg'
+//   ]
+// })
+
 const categories = reactive({
   plates: [
-    '/public/image/w800-31.jpg',
-    '/public/image/w800-32.jpg',
-    '/public/image/w800-33.jpg',
-    '/public/image/w800-34.jpg',
-    '/public/image/w800-36.jpg',
-    '/public/image/w800-37.jpg'
+    '/image/w800-31.jpg',
+    '/image/w800-32.jpg',
+    '/image/w800-33.jpg',
+    '/image/w800-34.jpg',
+    '/image/w800-36.jpg',
+    '/image/w800-37.jpg'
   ],
   utensils: [
-    '/public/image/w800-38.jpg',
-    '/public/image/w800-39.jpg',
-    '/public/image/w800-40.jpg',
-    '/public/image/w800-41.jpg',
-    '/public/image/w800-42.jpg'
+    '/image/w800-38.jpg',
+    '/image/w800-39.jpg',
+    '/image/w800-40.jpg',
+    '/image/w800-41.jpg',
+    '/image/w800-42.jpg'
   ],
   storage: [
-    '/public/image/w800-43.jpg',
-    '/public/image/w800-44.jpg',
-    '/public/image/w800-45.jpg',
-    '/public/image/w800-46.jpg'
+    '/image/w800-43.jpg',
+    '/image/w800-44.jpg',
+    '/image/w800-45.jpg',
+    '/image/w800-46.jpg'
   ]
 })
 
