@@ -21,11 +21,9 @@
                   </router-link>
                 </v-col>
                 <v-col cols="12" sm="5" class="ntarea">
-                  <router-link :to="'/singlenews'">
-                    <v-card-title class="text-h5 text-black">
-                      {{ card.title }}
-                    </v-card-title>
-                  </router-link>
+                  <v-card-title class="text-h5 text-black">
+                    {{ card.title }}
+                  </v-card-title>
                   <v-card-subtitle class="text-black">
                     {{ card.subtitle }}
                   </v-card-subtitle>
@@ -87,9 +85,7 @@
                     class="mb-2"
                   >
                     <v-list-item-content>
-                      <router-link :to="'/singlenews'">
-                        <v-list-item-title>{{ news.title }}</v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>{{ news.title }}</v-list-item-title>
                       <v-list-item-subtitle>{{ news.subtitle }}</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
@@ -151,14 +147,15 @@ export default {
       { title: '【合作夥伴專屬優惠】🤝 與我們合作的餐飲業界夥伴專享額外折扣！', subtitle: '2024.08.20', image: 'image/w800-07.jpg' },
       { title: '【舊機換新機】🔄 換新不再煩惱！將你的舊餐飲設備交給我們', subtitle: '2024.08.20', image: 'image/w800-08.jpg' }
     ],
-    itemsPerPage: 3,
+    itemsPerPage: 4,
     currentPage: 1,
     search: '',
     searchInput: '',
     featuredArticles: [
       { title: '【新品體驗日】🍽️ 本月末，我們將舉辦餐飲設備新品體驗日！', image: 'image/w800-05.jpg' },
       { title: '【顧客評價活動】💬 分享你對我們餐飲設備的使用心得', image: 'image/w800-06.jpg' },
-      { title: '【免運費優惠】🚚 本月內所有訂單免運費！', image: 'image/w800-01.jpg' }
+      { title: '【免運費優惠】🚚 本月內所有訂單免運費！', image: 'image/w800-01.jpg' },
+      { title: '【客戶專屬回饋】🎁 購滿$5000即送餐飲設備清潔套裝！', image: 'image/w800-03.jpg' }
     ]
   }),
   computed: {
@@ -211,79 +208,25 @@ export default {
 }
 
 .newslist1, .featuredlist1 {
-  padding: 0px!important;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .img-style {
   width: 100%;
   height: auto;
-  box-sizing: border-box;
-}
-
-.v-pagination {
-  margin-top: 20px;
-}
-
-.v-pagination .v-pagination__item {
-  cursor: pointer;
-}
-
-.v-pagination .v-pagination__item--active {
-  background-color: #e34e41;
-  color: yellow;
-}
-
-.content-row {
-  display: flex;
-  align-items: stretch;
-}
-
-.content-column {
-  padding-right: 20px;
-}
-
-.ntarea{
-  padding-top: 20px!important;
-  padding-bottom: 20px!important;
-}
-
-#newsct {
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2);
-  padding: 12px;
-  height: 100%;
-}
-
-.featuredlist1 .v-list-item-avatar {
-  width: 100%;
-  max-width: 100px; /* Adjust as needed */
 }
 
 .featured-img {
-  width: 100%;
-  height: auto;
+  width: 80px;
+  height: 80px;
 }
 
-.idnsbtn{
-  background: #ffbc05;
-  border-radius: 20px;
-  color: white;
-  font-weight: 600;
-  box-shadow: 0px 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 2px 2px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 5px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
-  border: none;
+.idnsbtn {
+  color: #1976D2; /* Vuetify primary color */
 }
 
-.idnsbtn:hover {
-  background: #e34e41;
-  border-radius: 20px;
-  color: white;
-  font-weight: 600;
-}
-
-.v-card .v-card-title {
-  font-size: 20px!important;
-  font-weight: 600;
-    line-height: 1.6;
+.ntarea {
+  padding: 0 12px;
 }
 </style>
