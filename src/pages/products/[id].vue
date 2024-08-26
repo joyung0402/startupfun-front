@@ -178,7 +178,7 @@
   </v-container>
 
   <!-- Dialog for Lightbox -->
-  <v-dialog v-model="dialog" max-width="60%">
+  <v-dialog v-model="dialog" max-width="80%">
     <v-img :src="dialogImage" class="lightbox-image"></v-img>
   </v-dialog>
 </div>
@@ -186,7 +186,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useApi } from '@/composables/axios'
 import { useSnackbar } from 'vuetify-use-dialog'
@@ -235,7 +235,7 @@ const load = async () => {
     const { data } = await api.get('/product/' + route.params.id)
     product.value = data.result
 
-    document.title = '創業趣 | ' + product.value.name
+    document.title = '購物網 | ' + product.value.name
   } catch (error) {
     console.log(error)
     createSnackbar({
@@ -254,7 +254,7 @@ const backgroundStyle = computed(() => ({
   backgroundPosition: 'center'
 }))
 
-const categories = {
+const categories = reactive({
   plates: [
     '/public/image/w800-31.jpg',
     '/public/image/w800-32.jpg',
@@ -276,7 +276,7 @@ const categories = {
     '/public/image/w800-45.jpg',
     '/public/image/w800-46.jpg'
   ]
-}
+})
 
 const currentCategory = ref('plates')
 const currentImages = computed(() => categories[currentCategory.value] || [])
