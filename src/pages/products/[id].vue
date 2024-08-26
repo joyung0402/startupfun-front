@@ -196,7 +196,12 @@ import { useUserStore } from '@/stores/user'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import myImage from '@/assets/ss02.jpg'
+import img1 from '@/assets/w800-31.jpg'
+import img2 from '@/assets/w800-32.jpg'
+import img3 from '@/assets/w800-33.jpg'
+import img4 from '@/assets/w800-34.jpg'
+import img5 from '@/assets/w800-36.jpg'
+import img6 from '@/assets/w800-37.jpg'
 
 // 初始化 AOS
 onMounted(() => {
@@ -284,11 +289,12 @@ const backgroundStyle = computed(() => ({
 
 const categories = reactive({
   plates: [
-    '/image/w800-31.jpg',
-    '/image/w800-32.jpg',
-    '/image/w800-43.jpg',
-    '/image/w800-41.jpg',
-    '/image/w800-42.jpg'
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6
   ],
   utensils: [
     '/image/w800-38.jpg',
