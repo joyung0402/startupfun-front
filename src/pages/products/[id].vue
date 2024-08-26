@@ -1,17 +1,7 @@
 <template>
   <!-- Banner Section -->
   <v-col cols="12" sm="12" :style="backgroundStyle" class="ssbnimg">
-    <!-- <v-container>
-      <v-col>
-        <v-row justify="center">
-          <v-col cols="12" sm="12">
-            <div class="ssbannertitle">
-              <h1 class="ssbannertitle1">{{ product.name }}</h1>
-            </div>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-container> -->
+    <!-- Optional Banner Title -->
   </v-col>
 
   <!-- Back to Top Button and Info Link -->
@@ -42,146 +32,147 @@
       </v-col>
     </v-container>
   </v-col>
+
   <div id="ssabg" class="pb-16">
-  <v-container>
-    <v-col cols="12" sm="12" class="mt-16">
-      <v-row justify="center">
-        <v-col cols="12" sm="12">
-          <v-row id="sspoint01">
-            <v-col cols="12" sm="3" class="sstore01" data-aos="fade-up">
+    <v-container>
+      <v-col cols="12" sm="12" class="mt-16">
+        <v-row justify="center">
+          <v-col cols="12" sm="12">
+            <v-row id="sspoint01">
+              <v-col cols="12" sm="3" class="sstore01" data-aos="fade-up">
+                <v-img
+                  :src="product.image1"
+                  aspect-ratio="1"
+                  class="bg-white"
+                  id="sstoreimg"
+                  width="100%"
+                  height="100%"
+                  cover
+                ></v-img>
+              </v-col>
+              <v-col cols="12" sm="9" class="sstore02" data-aos="fade-up">
+                <v-card>
+                  <div id="sstorewd">
+                    <p id="sstoretitle">{{ product.name }}</p>
+                    <div class="mt-8 sstoretext">
+                      <p>{{ product.description }}</p>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col cols="12" sm="12">
+        <v-row>
+          <v-col cols="12" sm="8">
+            <div class="ssservice" id="sspoint02" data-aos="fade-up">
+              <h1>服務項目</h1>
               <v-img
-                :src="product.image1"
+                :src="product.image3"
                 aspect-ratio="1"
-                class="bg-white"
+                class="bg-white my-6"
                 id="sstoreimg"
                 width="100%"
-                height="100%"
+                height="400px"
                 cover
               ></v-img>
-            </v-col>
-            <v-col cols="12" sm="9" class="sstore02" data-aos="fade-up">
-              <v-card>
-                <div id="sstorewd">
-                  <p id="sstoretitle">{{ product.name }}</p>
-                  <div class="mt-8 sstoretext">
-                    <p>{{ product.description }}</p>
-                  </div>
+              <p class="sstoretext">{{ product.description }}</p>
+            </div>
+            <div class="ssservice mt-6" id="sspoint03" data-aos="fade-up">
+              <v-row>
+                <v-col cols="12" sm="6">
+                  <h1 class="mt-4">相關商品 / 作品</h1>
+                </v-col>
+                <v-col cols="12" sm="6" id="sspbtn">
+                  <a href="/path-to-catalog.pdf" download>
+                    <v-btn class="ssproduct-btn mx-2">型錄下載</v-btn>
+                  </a>
+                  <a href="/">
+                    <v-btn class="ssproduct-btn mx-2">查看更多</v-btn>
+                  </a>
+                </v-col>
+              </v-row>
+              <div class="my-8">
+                <v-btn @click="showCategory('plates')" class="category-btn mx-2">圓盤</v-btn>
+                <v-btn @click="showCategory('utensils')" class="category-btn mx-2">餐具</v-btn>
+                <v-btn @click="showCategory('storage')" class="category-btn mx-2">收納盤</v-btn>
+              </div>
+              <v-row>
+                <v-col v-for="(image, index) in currentImages" :key="index" cols="12" sm="4">
+                  <v-img
+                    :src="image"
+                    class="image-thumbnail"
+                    @click="openDialog(image)"
+                  >
+                    <div class="fill-height repeating-gradient"></div>
+                  </v-img>
+                </v-col>
+              </v-row>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <div class="ssservice" id="sspoint04" data-aos="fade-up">
+              <div>
+                <h1>商家資訊</h1>
+                <div class="my-6">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14458.814597305804!2d121.4195156!3d25.0441293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1718091533768!5m2!1szh-TW!2stw"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-col>
-
-    <v-col cols="12" sm="12">
-      <v-row>
-        <v-col cols="12" sm="8">
-          <div class="ssservice" id="sspoint02" data-aos="fade-up">
-            <h1>服務項目</h1>
-            <v-img
-              :src="product.image3"
-              aspect-ratio="1"
-              class="bg-white my-6"
-              id="sstoreimg"
-              width="100%"
-              height="400px"
-              cover
-            ></v-img>
-            <p class="sstoretext">
-              {{ product.description }}</p>
-          </div>
-          <div class="ssservice mt-6" id="sspoint03" data-aos="fade-up">
-            <v-row>
-              <v-col cols="12" sm="6">
-                <h1 class="mt-4">相關商品 / 作品</h1>
-              </v-col>
-              <v-col cols="12" sm="6" id="sspbtn">
-                <a href="/path-to-catalog.pdf" download>
-                  <v-btn class="ssproduct-btn mx-2">型錄下載</v-btn>
-                </a>
-                <a href="/">
-                  <v-btn class="ssproduct-btn mx-2">查看更多</v-btn>
-                </a>
-              </v-col>
-            </v-row>
-            <div class="my-8">
-              <v-btn @click="showCategory('plates')" class="category-btn mx-2">圓盤</v-btn>
-              <v-btn @click="showCategory('utensils')" class="category-btn mx-2">餐具</v-btn>
-              <v-btn @click="showCategory('storage')" class="category-btn mx-2">收納盤</v-btn>
-            </div>
-            <v-row>
-              <v-col v-for="(image, index) in currentImages" :key="index" cols="12" sm="4">
-                <v-img
-                  :src="image"
-                  class="image-thumbnail"
-                  @click="openDialog(image)"
-                >
-                  <div class="fill-height repeating-gradient"></div>
-                </v-img>
-              </v-col>
-            </v-row>
-          </div>
-        </v-col>
-        <v-col cols="12" sm="4">
-          <div class="ssservice" id="sspoint04" data-aos="fade-up">
-            <div>
-              <h1>商家資訊</h1>
-              <div class="my-6">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14458.814597305804!2d121.4195156!3d25.0441293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1718091533768!5m2!1szh-TW!2stw"
-                  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="sstoretext">
+                  <p>地址 : 新北市區忠三街35巷8號</p>
+                  <p>電話 : 02-2648-5358</p>
+                  <p>email : startupfun0104@gmail.com</p>
+                </div>
               </div>
-              <div class="sstoretext">
-                <p>地址 : 新北市區忠三街35巷8號</p>
-                <p>電話 : 02-2648-5358</p>
-                <p>email : startupfun0104@gmail.com</p>
+              <div class="mt-12">
+                <h1>立即聯絡</h1>
+                <v-form @submit.prevent="submitForm">
+                  <v-text-field
+                    v-model="form.name"
+                    label="姓名"
+                    required
+                    class="mb-4"
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="form.email"
+                    label="電子郵件"
+                    type="email"
+                    required
+                    class="mb-4"
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="form.phone"
+                    label="聯絡電話"
+                    type="tel"
+                    required
+                    class="mb-4"
+                  ></v-text-field>
+                  <v-textarea
+                    v-model="form.message"
+                    label="留言內容"
+                    required
+                    class="mb-4"
+                  ></v-textarea>
+                  <v-btn type="submit" id="sscbtn">送出</v-btn>
+                </v-form>
               </div>
             </div>
-            <div class="mt-12">
-              <h1>立即聯絡</h1>
-              <v-form @submit.prevent="submitForm">
-                <v-text-field
-                  v-model="form.name"
-                  label="姓名"
-                  required
-                  class="mb-4"
-                ></v-text-field>
-                <v-text-field
-                  v-model="form.email"
-                  label="電子郵件"
-                  type="email"
-                  required
-                  class="mb-4"
-                ></v-text-field>
-                <v-text-field
-                  v-model="form.phone"
-                  label="聯絡電話"
-                  type="tel"
-                  required
-                  class="mb-4"
-                ></v-text-field>
-                <v-textarea
-                  v-model="form.message"
-                  label="留言內容"
-                  required
-                  class="mb-4"
-                ></v-textarea>
-                <v-btn type="submit" id="sscbtn">送出</v-btn>
-              </v-form>
-            </div>
-          </div>
-        </v-col>
-      </v-row>
-    </v-col>
-  </v-container>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-container>
+  </div>
 
   <!-- Dialog for Lightbox -->
   <v-dialog v-model="dialog" max-width="80%">
     <v-img :src="dialogImage" class="lightbox-image"></v-img>
   </v-dialog>
-</div>
+
   <MainFooter></MainFooter>
 </template>
 
@@ -256,25 +247,25 @@ const backgroundStyle = computed(() => ({
 
 const categories = {
   plates: [
-    require('@/public/image/w800-31.jpg'),
-    require('@/public/image/w800-32.jpg'),
-    require('@/public/image/w800-33.jpg'),
-    require('@/public/image/w800-34.jpg'),
-    require('@/public/image/w800-36.jpg'),
-    require('@/public/image/w800-37.jpg')
+    '/image/w800-31.jpg',
+    '/image/w800-32.jpg',
+    '/image/w800-33.jpg',
+    '/image/w800-34.jpg',
+    '/image/w800-36.jpg',
+    '/image/w800-37.jpg'
   ],
   utensils: [
-    require('@/public/image/w800-38.jpg'),
-    require('@/public/image/w800-39.jpg'),
-    require('@/public/image/w800-40.jpg'),
-    require('@/public/image/w800-41.jpg'),
-    require('@/public/image/w800-42.jpg')
+    '/image/w800-38.jpg',
+    '/image/w800-39.jpg',
+    '/image/w800-40.jpg',
+    '/image/w800-41.jpg',
+    '/image/w800-42.jpg'
   ],
   storage: [
-    require('@/public/image/w800-43.jpg'),
-    require('@/public/image/w800-44.jpg'),
-    require('@/public/image/w800-45.jpg'),
-    require('@/public/image/w800-46.jpg')
+    '/image/w800-43.jpg',
+    '/image/w800-44.jpg',
+    '/image/w800-45.jpg',
+    '/image/w800-46.jpg'
   ]
 }
 
@@ -317,17 +308,19 @@ const submitForm = () => {
 </script>
 
 <style scoped>
+/* Your existing CSS styles here */
+
 .sspoint {
   height: 60px;
   width: 100%;
   background: #4d4d4d;
-  box-shadow: none; /* Removed shadow */
+  box-shadow: none;
   display: flex;
   align-items: center;
-  position: -webkit-sticky; /* For Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 80px;
-  z-index: 1000; /* Ensure it stays above other content */
+  z-index: 1000;
 }
 
 .top-link, .info-link {
@@ -344,13 +337,10 @@ const submitForm = () => {
 }
 
 .info-link {
-  margin-left: 40px; /* Adjusted space between the two elements */
+  margin-left: 40px;
 }
 
 .ssbnimg {
-  /* background: url(/public/image/2.png);
-  background-size: cover;
-  background-position: center; */
   height: 500px;
   display: flex;
   align-items: center;
@@ -463,7 +453,7 @@ const submitForm = () => {
   background: #e34e41 !important;
 }
 
-#sspbtn{
+#sspbtn {
   display: flex;
   justify-content: end;
   align-items: center;
@@ -471,34 +461,34 @@ const submitForm = () => {
 }
 
 @media only screen and (max-width: 768px) {
-#sspbtn{
-  justify-content: start;
-}
+  #sspbtn {
+    justify-content: start;
+  }
 }
 
-.sspointbtn{
+.sspointbtn {
   background: #ffbc05 !important;
-  border-radius: 20px!important;
+  border-radius: 20px !important;
   color: #fff;
 }
 
-.sspointbtn:hover{
+.sspointbtn:hover {
   background: #e34e41 !important;
 }
 
-.ssproduct-btn{
+.ssproduct-btn {
   border-radius: 20px;
   background: #ffbc05;
   color: white;
 }
 
-.ssproduct-btn:hover{
+.ssproduct-btn:hover {
   background: #e34e41;
 }
 
-#ssabg{
+#ssabg {
   background: url(/public/image/bg-store-w1920-01.jpg);
-  background-size:cover;
+  background-size: cover;
   background-position: top;
 }
 </style>
