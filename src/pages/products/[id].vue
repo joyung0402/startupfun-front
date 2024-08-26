@@ -121,6 +121,7 @@
                 </v-img>
               </v-col>
             </v-row>
+            <v-img :src="'/public/image/w800-31.jpg'"></v-img>
           </div>
         </v-col>
         <v-col cols="12" sm="4">
@@ -280,12 +281,7 @@ const backgroundStyle = computed(() => ({
 
 const categories = reactive({
   plates: [
-    '/image/w800-31.jpg',
-    '/image/w800-32.jpg',
-    '/image/w800-33.jpg',
-    '/image/w800-34.jpg',
-    '/image/w800-36.jpg',
-    '/image/w800-37.jpg'
+    '/assets/ss01.jpg'
   ],
   utensils: [
     '/image/w800-38.jpg',
