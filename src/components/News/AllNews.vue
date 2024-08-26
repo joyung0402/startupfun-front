@@ -1,10 +1,10 @@
 <template>
   <v-col cols="12" sm="12" class="my-16">
     <v-row class="content-row">
-      <!-- 左側內容區 -->
+      <!-- Left Column for Content -->
       <v-col cols="12" sm="9" class="content-column">
         <v-row>
-          <!-- 顯示分頁卡片 -->
+          <!-- Display paginated cards -->
           <v-col
             v-for="(card, index) in paginatedCards"
             :key="index"
@@ -16,9 +16,7 @@
             <v-card color="white">
               <v-row no-gutters>
                 <v-col cols="12" sm="7">
-                  <router-link :to="'/singlenews'">
-                    <v-img :src="card.image" class="img-style"></v-img>
-                  </router-link>
+                  <v-img :src="card.image" class="img-style"></v-img>
                 </v-col>
                 <v-col cols="12" sm="5" class="ntarea">
                   <v-card-title class="text-h5 text-black">
@@ -33,7 +31,7 @@
                       size="small"
                       text="READ MORE"
                       variant="outlined"
-                      :to="'/singlenews'"
+                      to="/singlenews"
                     ></v-btn>
                   </v-card-actions>
                 </v-col>
@@ -42,7 +40,7 @@
           </v-col>
         </v-row>
 
-        <!-- 分頁控制 -->
+        <!-- Pagination Controls -->
         <v-row class="mt-4" justify="center">
           <v-col cols="12" sm="12" class="d-flex justify-center">
             <v-pagination
@@ -54,11 +52,11 @@
         </v-row>
       </v-col>
 
-      <!-- 右側區域 -->
+      <!-- Right Column to maintain layout -->
       <v-col cols="12" sm="3" id="newsct" data-aos="fade-up">
         <v-row>
           <v-col>
-            <!-- 搜尋框 -->
+            <!-- Search Bar -->
             <v-col cols="12">
               <v-text-field
                 class="mx-auto"
@@ -74,7 +72,7 @@
               ></v-text-field>
             </v-col>
 
-            <!-- 最新消息 -->
+            <!-- Latest News -->
             <h1 id="newstitle01">最新消息</h1>
             <v-col cols="12" class="mt-4 newslist1">
               <v-list>
@@ -93,7 +91,7 @@
               </v-list>
             </v-col>
 
-            <!-- 精選文章 -->
+            <!-- Featured Articles -->
             <h1 id="featuredtitle01" class="mt-8">精選文章</h1>
             <v-col cols="12" class="mt-4 featuredlist1">
               <v-list>
@@ -102,14 +100,12 @@
                   :key="index"
                   class="mb-4"
                 >
-                  <router-link :to="'/singlenews'">
-                    <v-list-item-avatar>
-                      <v-img :src="article.image" class="featured-img"></v-img>
-                    </v-list-item-avatar>
-                    <v-list-item-content>
-                      <v-list-item-title>{{ article.title }}</v-list-item-title>
-                    </v-list-item-content>
-                  </router-link>
+                  <v-list-item-avatar>
+                    <v-img :src="article.image" class="featured-img"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ article.title }}</v-list-item-title>
+                  </v-list-item-content>
                 </v-list-item>
               </v-list>
             </v-col>
@@ -124,17 +120,15 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 
 // 初始化 AOS
 onMounted(() => {
   AOS.init({
-    duration: 1000, // 動畫持續時間
-    easing: 'ease-in-out', // 動畫效果
-    once: true // 是否只觸發一次
+    duration: 1000, // 动画持续时间
+    easing: 'ease-in-out', // 动画效果
+    once: true // 是否只触发一次
   })
 })
-
 export default {
   data: () => ({
     cards: [
@@ -182,7 +176,7 @@ export default {
       }))
     },
     staticLatestNews () {
-      // 假設要始終顯示 `cards` 陣列中的前四項
+      // Assuming you want to always show the first 4 items in the `cards` array
       return this.cards.slice(0, 4).map(card => ({
         title: card.title,
         subtitle: card.subtitle
@@ -191,9 +185,9 @@ export default {
   },
   methods: {
     performSearch () {
-      // 當用戶按下 Enter 鍵時需要的額外邏輯
-      this.search = this.searchInput.trim() // 去除前後空白
-      this.currentPage = 1 // 在新搜尋時重置到第一頁
+      // Add any additional logic needed when the user presses Enter
+      this.search = this.searchInput.trim() // Trim whitespace if needed
+      this.currentPage = 1 // Reset to the first page on new search
     },
     handleEnterKey (event) {
       this.performSearch()
@@ -208,25 +202,79 @@ export default {
 }
 
 .newslist1, .featuredlist1 {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0px!important;
 }
 
 .img-style {
   width: 100%;
   height: auto;
+  box-sizing: border-box;
+}
+
+.v-pagination {
+  margin-top: 20px;
+}
+
+.v-pagination .v-pagination__item {
+  cursor: pointer;
+}
+
+.v-pagination .v-pagination__item--active {
+  background-color: #e34e41;
+  color: yellow;
+}
+
+.content-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.content-column {
+  padding-right: 20px;
+}
+
+.ntarea{
+  padding-top: 20px!important;
+  padding-bottom: 20px!important;
+}
+
+#newsct {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  height: 100%;
+}
+
+.featuredlist1 .v-list-item-avatar {
+  width: 100%;
+  max-width: 100px; /* Adjust as needed */
 }
 
 .featured-img {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: auto;
 }
 
-.idnsbtn {
-  color: #1976D2; /* Vuetify primary color */
+.idnsbtn{
+  background: #ffbc05;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0px 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 2px 2px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 5px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
+  border: none;
 }
 
-.ntarea {
-  padding: 0 12px;
+.idnsbtn:hover {
+  background: #e34e41;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.v-card .v-card-title {
+  font-size: 20px!important;
+  font-weight: 600;
+    line-height: 1.6;
 }
 </style>
