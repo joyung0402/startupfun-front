@@ -122,6 +122,7 @@
               </v-col>
             </v-row>
             <v-img :src="'/public/image/w800-31.jpg'"></v-img>
+            <v-img :src="'/assets/ss02.jpg'"></v-img>
           </div>
         </v-col>
         <v-col cols="12" sm="4">
