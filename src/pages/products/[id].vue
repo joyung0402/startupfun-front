@@ -256,25 +256,25 @@ const backgroundStyle = computed(() => ({
 
 const categories = {
   plates: [
-    '/image/w800-31.jpg',
-    '/image/w800-32.jpg',
-    '/image/w800-33.jpg',
-    '/image/w800-34.jpg',
-    '/image/w800-36.jpg',
-    '/image/w800-37.jpg'
+    require('@/public/image/w800-31.jpg'),
+    require('@/public/image/w800-32.jpg'),
+    require('@/public/image/w800-33.jpg'),
+    require('@/public/image/w800-34.jpg'),
+    require('@/public/image/w800-36.jpg'),
+    require('@/public/image/w800-37.jpg')
   ],
   utensils: [
-    '/image/w800-38.jpg',
-    '/image/w800-39.jpg',
-    '/image/w800-40.jpg',
-    '/image/w800-41.jpg',
-    '/image/w800-42.jpg'
+    require('@/public/image/w800-38.jpg'),
+    require('@/public/image/w800-39.jpg'),
+    require('@/public/image/w800-40.jpg'),
+    require('@/public/image/w800-41.jpg'),
+    require('@/public/image/w800-42.jpg')
   ],
   storage: [
-    '/image/w800-43.jpg',
-    '/image/w800-44.jpg',
-    '/image/w800-45.jpg',
-    '/image/w800-46.jpg'
+    require('@/public/image/w800-43.jpg'),
+    require('@/public/image/w800-44.jpg'),
+    require('@/public/image/w800-45.jpg'),
+    require('@/public/image/w800-46.jpg')
   ]
 }
 
