@@ -121,8 +121,6 @@
                 </v-img>
               </v-col>
             </v-row>
-            <v-img :src="'/public/image/w800-31.jpg'"></v-img>
-            <v-img :src="myImage"></v-img>
           </div>
         </v-col>
         <v-col cols="12" sm="4">
@@ -180,7 +178,7 @@
   </v-container>
 
   <!-- Dialog for Lightbox -->
-  <v-dialog v-model="dialog" max-width="80%">
+  <v-dialog v-model="dialog" max-width="50%">
     <v-img :src="dialogImage" class="lightbox-image"></v-img>
   </v-dialog>
 </div>
@@ -202,6 +200,17 @@ import img3 from '@/assets/w800-33.jpg'
 import img4 from '@/assets/w800-34.jpg'
 import img5 from '@/assets/w800-36.jpg'
 import img6 from '@/assets/w800-37.jpg'
+
+import img7 from '@/assets/w800-38.jpg'
+import img8 from '@/assets/w800-39.jpg'
+import img9 from '@/assets/w800-40.jpg'
+import img10 from '@/assets/w800-41.jpg'
+import img11 from '@/assets/w800-42.jpg'
+
+import img12 from '@/assets/w800-43.jpg'
+import img13 from '@/assets/w800-44.jpg'
+import img14 from '@/assets/w800-45.jpg'
+import img15 from '@/assets/w800-46.jpg'
 
 // 初始化 AOS
 onMounted(() => {
@@ -297,17 +306,17 @@ const categories = reactive({
     img6
   ],
   utensils: [
-    '/image/w800-38.jpg',
-    '/image/w800-39.jpg',
-    '/image/w800-40.jpg',
-    '/image/w800-41.jpg',
-    '/image/w800-42.jpg'
+    img7,
+    img8,
+    img9,
+    img10,
+    img11
   ],
   storage: [
-    '/image/w800-43.jpg',
-    '/image/w800-44.jpg',
-    '/image/w800-45.jpg',
-    '/image/w800-46.jpg'
+    img12,
+    img13,
+    img14,
+    img15
   ]
 })
 
